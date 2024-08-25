@@ -3,17 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
@@ -30,4 +22,181 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+#loader {
+  width: 320px;
+  height: 320px;
+  background-color: #ffffff;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  -webkit-box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+#loader div {
+  height: 100px;
+  width: 100px;
+  border: 15px solid #d5d5d5;
+  border-top-color: #575ce5;
+  border-radius: 50%;
+  -webkit-animation: spin 1s infinite;
+  animation: spin 1s infinite;
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#wrapper {
+  position: absolute;
+  width: 400px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 57%;
+  left: 50%;
+  display: none;
+}
+.container {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 30px 25px;
+  border-radius: 10px;
+  -webkit-box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  -webkit-perspective: 300px;
+  perspective: 300px;
+}
+
+.stats {
+  text-align: right;
+  color: #101020;
+  font-weight: 500;
+  line-height: 25px;
+}
+.coin {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
+  margin: 50px auto;
+  transition: all;
+  transition-duration: 150ms;
+}
+.coin img {
+  width: 145px;
+}
+.heads,
+.tails {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+.tails {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+@-webkit-keyframes spin-tails {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(1980deg);
+    transform: rotateX(1980deg);
+  }
+}
+@keyframes spin-tails {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(1980deg);
+    transform: rotateX(1980deg);
+  }
+}
+@-webkit-keyframes spin-heads {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(2160deg);
+    transform: rotateX(2160deg);
+  }
+}
+@keyframes spin-heads {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(2160deg);
+    transform: rotateX(2160deg);
+  }
+}
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+button {
+  width: 100px;
+  padding: 10px 0;
+  border: 2.5px solid #424ae0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#flip-button {
+  background-color: #424ae0;
+  color: #ffffff;
+}
+#flip-button:disabled {
+  background-color: #e1e0ee;
+  border-color: #e1e0ee;
+  color: #101020;
+}
+#reset-button {
+  background-color: #ffffff;
+  color: #424ae0;
+}
+a {
+  display: block;
+  margin-top: 30px;
+  padding: 15px 0;
+  background-color: #ffffff;
+  color: #575ce5;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+  -webkit-box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+}
+.fab {
+  color: #ff0000;
 }
