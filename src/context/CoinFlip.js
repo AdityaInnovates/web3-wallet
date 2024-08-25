@@ -66,7 +66,7 @@ export const CoinFlipProvider = ({ children }) => {
   const ifWalletConnected = async () => {
     try {
       if (!window.ethereum) {
-        setError("Install Metamask");
+        alert("Install Metamask from metamask.io");
         return false;
       }
 
